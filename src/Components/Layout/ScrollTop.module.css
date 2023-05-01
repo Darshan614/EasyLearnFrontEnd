@@ -1,0 +1,19 @@
+.scrollbutton{
+position: fixed; 
+/* width: 100%; */
+left: 95%;
+bottom: 80px;
+height: 20px;
+font-size: 4rem;
+z-index: 1;
+cursor: pointer;
+color: brown;
+padding: 0;
+width: 0;
+height: 0;
+outline: none;
+border: none;
+}
+.scrollbutton:focus{
+    outline: none;
+}

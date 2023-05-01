@@ -1,0 +1,47 @@
+.qas {
+    color: white;
+  }
+  
+  .ans {
+    margin: 2%;
+    background-color: rgb(171, 211, 241);
+    padding: 2%;
+    border-radius: 2px;
+  }
+  
+  .ques {
+    margin: 2%;
+    background-color: rgb(205, 209, 212);
+    padding: 2%;
+    border-radius: 2px;
+    margin-top: 3%;
+  }
+
+  .author{
+    color: rgba(1, 30, 39, 0.61);
+  }
+  
+  .dislike{
+    color: red;
+    float: right;
+    margin-right: 4px;
+    margin-left: 2px;
+    font-size: larger;
+    border: 1px solid rgb(235, 89, 4);
+    border-radius: 5px;
+  }
+  .dislike:hover{
+    cursor: pointer;
+    border: 1px solid red;
+  }
+  
+  .like{
+    font-size: larger;
+    color: rgb(3, 104, 20);
+    float: right;
+    border: 1px solid green;
+    border-radius: 5px;
+  }
+  .like:hover{
+    cursor: pointer;
+  }
