@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Answer from "../Components/Answer";
 import classes from "./MyAnswers.module.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import Loading from "../Components/UI/Loading";
 
 function MyAnswers() {
   const [qas, setqas] = useState([]);
   const [qa, setqa] = useState([]);
   const [up, setup] = useState(0);
   const [down, setdown] = useState(0);
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
+  const navigate = useNavigate();
+  const [loading, setloading] = useState(true);
 
   //fetch answers and send as props
   useEffect(() => {
+    if (!loggedIn) {
+      navigate("/auth");
+      document.documentElement.scrollTop = 0;
+      return;
+    }
     const token = localStorage.getItem("token");
-    fetch("http://localhost:8080/allAnswers", {
+    //https://easylearn-mhgq.onrender.com/allQuestions
+    const u = "https://easylearn-mhgq.onrender.com/allAnswers";
+    fetch("https://easylearn-mhgq.onrender.com/allAnswers", {
       method: "GET",
       cache: "no-store",
       headers: {
@@ -23,6 +36,7 @@ function MyAnswers() {
       })
       .then((data) => {
         setqas(data.answers);
+        setloading(false);
       });
   }, []);
   useEffect(() => {
@@ -53,15 +67,20 @@ function MyAnswers() {
     );
   }, [qas]);
   return (
-    <div>
-      <h2 className={classes.qas}>My Answers</h2>
-      <hr></hr>
+    <>
+      {loading && <Loading />}
+      {!loading && (
+        <div>
+          <h2 className={classes.qas}>My Answers</h2>
+          <hr></hr>
 
-      <p>
-        {qa}
-        {qa.length === 0 && <p>No answers yet.</p>}
-      </p>
-    </div>
+          <p>
+            {qa}
+            {qa.length === 0 && <p>No answers yet.</p>}
+          </p>
+        </div>
+      )}
+    </>
   );
 }
 

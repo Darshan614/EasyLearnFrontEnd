@@ -1,10 +1,19 @@
 import classes from "./QuesAns.module.css";
 import { useState } from "react";
 import Answer from "./Answer";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function QuesAns(props) {
+  const navigate = useNavigate();
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
   const [answerform, showanswerform] = useState(false);
   const showanswerformHandler = () => {
+    if (!loggedIn) {
+      navigate("/auth");
+      document.documentElement.scrollTop = 0;
+      return;
+    }
     showanswerform(!answerform);
   };
   const [answer, setanswer] = useState("");
@@ -13,7 +22,9 @@ function QuesAns(props) {
   };
   const onSubmitAnswerHandler = () => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:8080/addAnswer", {
+    const url2 = "http://localhost:8080/addAnswer";
+    const url1 = "https://easylearn-mhgq.onrender.com/addAnswer"
+    fetch(url1, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

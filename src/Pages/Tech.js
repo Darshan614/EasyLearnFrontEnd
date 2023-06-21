@@ -14,13 +14,13 @@ function Tech() {
     return obj.title == Object.fromEntries([...filter])["tech"];
   }
 
-  const tech = TechData.filter(checktitle);
-  console.log("tech", tech);
-  let col = tech[0].color;
+  // const tech = TechData.filter(checktitle);
+  // console.log("tech", tech);
+  // let col = tech[0].color;
 
   useEffect(() => {
     const url =
-      "http://localhost:8080/subtopics/" +
+      "https://easylearn-mhgq.onrender.com/subtopics/" +
       Object.fromEntries([...filter])["tech"];
     fetch(url)
       .then((res) => {
@@ -47,9 +47,7 @@ function Tech() {
 
   return (
     <div>
-      <div className={classes.h} style={{ color: col }}>
-        {params.title}
-      </div>
+      <div className={classes.h}>{params.title}</div>
       <div className={classes.tech}>{techs}</div>
     </div>
   );

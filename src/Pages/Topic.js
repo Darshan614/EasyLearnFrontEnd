@@ -37,7 +37,7 @@ function Topic() {
   // dpw9EHDh2bM
   useEffect(() => {
     const url =
-      "http://localhost:8080/subtopicData/" +
+      "https://easylearn-mhgq.onrender.com/subtopicData/" +
       Object.fromEntries([...filter])["tech"] +
       "/" +
       Object.fromEntries([...filter])["topic"];
@@ -58,7 +58,13 @@ function Topic() {
         setloading(false);
       });
   }, [loading]);
-  const showanswerformHandler = () => {};
+  const showanswerformHandler = () => {
+    if (!loggedIn) {
+      navigate("/auth");
+      document.documentElement.scrollTop = 0;
+      return;
+    }
+  };
   useEffect(() => {
     let answers = questions.map((qa) => (
       //  console.log(Object.keys(qa)[0],Object.values(qa)[0]);
@@ -79,9 +85,19 @@ function Topic() {
   };
 
   const showdoubtformHandler = () => {
+    if (!loggedIn) {
+      navigate("/auth");
+      document.documentElement.scrollTop = 0;
+      return;
+    }
     showdoubtform(!doubtform);
   };
   const showvideoformHandler = () => {
+    if (!loggedIn) {
+      navigate("/auth");
+      document.documentElement.scrollTop = 0;
+      return;
+    }
     showvideoform(!videoform);
   };
   const ondoubtSubmitHandler = () => {
@@ -92,7 +108,7 @@ function Topic() {
     }
     setloading(true);
     const token = localStorage.getItem("token");
-    fetch("http://localhost:8080/addQuestion", {
+    fetch("https://easylearn-mhgq.onrender.com/addQuestion", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -122,7 +138,7 @@ function Topic() {
     }
     setloading(true);
     const token = localStorage.getItem("token");
-    fetch("http://localhost:8080/addVideo", {
+    fetch("https://easylearn-mhgq.onrender.com/addVideo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

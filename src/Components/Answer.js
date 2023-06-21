@@ -12,10 +12,11 @@ function Answer(props) {
   const like = () => {
     if (!loggedIn) {
       navigate("/auth");
+      document.documentElement.scrollTop = 0;
       return;
     }
     const token = localStorage.getItem("token");
-    fetch("http://localhost:8080/vote", {
+    fetch("https://easylearn-mhgq.onrender.com/vote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,10 +42,11 @@ function Answer(props) {
   const dislike = () => {
     if (!loggedIn) {
       navigate("/auth");
+      document.documentElement.scrollTop = 0;
       return;
     }
     const token = localStorage.getItem("token");
-    fetch("http://localhost:8080/vote", {
+    fetch("https://easylearn-mhgq.onrender.com/vote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -29,7 +29,8 @@ function ForgetForm() {
     );
   };
   const onSubmitPassword = () => {
-    const url = "https://ecommerceio.onrender.com/setPassword/" + params.token;
+    const url =
+      "https://easylearn-mhgq.onrender.com/setPassword/" + params.token;
     fetch(url, {
       method: "POST",
       headers: {

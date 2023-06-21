@@ -23,7 +23,7 @@ function Footer() {
             <div className="col-md-3 mr-5 p-3">
               <div className={`row justify-content-between ${classes.icons}`}>
                 <NavLink
-                  to="/contact"
+                  to="#"
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.inactive
                   }
@@ -31,7 +31,7 @@ function Footer() {
                   <ion-icon name="logo-facebook"></ion-icon>
                 </NavLink>
                 <NavLink
-                  to="/contact"
+                  to="#"
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.inactive
                   }
@@ -39,7 +39,7 @@ function Footer() {
                   <ion-icon name="logo-instagram"></ion-icon>
                 </NavLink>
                 <NavLink
-                  to="/contact"
+                  to="#"
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.inactive
                   }
@@ -47,7 +47,7 @@ function Footer() {
                   <ion-icon name="logo-twitter"></ion-icon>
                 </NavLink>
                 <NavLink
-                  to="/contact"
+                  to="#"
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.inactive
                   }
@@ -55,7 +55,7 @@ function Footer() {
                   <ion-icon name="logo-slack"></ion-icon>
                 </NavLink>
                 <NavLink
-                  to="/contact"
+                  to="#"
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.inactive
                   }

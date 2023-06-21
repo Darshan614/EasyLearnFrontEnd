@@ -20,7 +20,7 @@ function Profile() {
     setloading(true);
     const token = localStorage.getItem("token");
     if (showform === false) {
-      fetch("http://localhost:8080/profile", {
+      fetch("https://easylearn-mhgq.onrender.com/profile", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,

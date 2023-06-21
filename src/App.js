@@ -22,7 +22,7 @@ function App() {
     setloading(true);
     const token = localStorage.getItem("token");
     const url2 = "http://localhost:8080/checklogin";
-    fetch(url2, {
+    fetch("https://easylearn-mhgq.onrender.com/checklogin", {
       method: "GET",
       cache: "no-store",
       headers: {

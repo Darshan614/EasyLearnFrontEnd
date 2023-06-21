@@ -102,7 +102,7 @@ function Signup(props) {
       return;
     }
     console.log(email, password, username, confirmpassword);
-    fetch("http://localhost:8080/signup", {
+    fetch("https://easylearn-mhgq.onrender.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
